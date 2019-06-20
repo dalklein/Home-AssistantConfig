@@ -59,9 +59,24 @@ sensor:
     ip_address: !secret envoy_ip
     monitored_conditions:
       - production
-#      - daily_production
-#      - seven_days_production
-#      - lifetime_production
+      - daily_production
+      - seven_days_production
+      - lifetime_production
+
+#platform: template
+#name: Electric Power Consumption
+#sensors:
+#house_current_consumption:
+#value_template: '{{(states.sensor.energy_1min_summation.state | float ) - (states.sensor.envoy_current_energy_production.state | float)}}'
+#friendly_name: “Power Consumption”
+
+#history_graph:
+#  name: Electric Power
+#  entities:
+#    - sensor.envoy_current_energy_production
+#    - sensor.energy_1min_summation
+#  hours_to_show: 24
+#  refresh: 10
 
 # Text to speech
 tts:
